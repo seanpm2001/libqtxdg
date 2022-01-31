@@ -344,9 +344,9 @@ QString &unEscapeExec(QString& str, QList<int> &literals)
     // The parseCombinedArgString() splits the string by the space symbols,
     // we temporarily replace them on the special characters.
     // Replacement will reverse after the splitting.
-    repl.insert(QLatin1Char(' '),  01);    // space
-    repl.insert(QLatin1Char('\t'), 02);    // tab
-    repl.insert(QLatin1Char('\n'), 03);    // newline,
+    repl.insert(QLatin1Char(' '),  QChar(01));    // space
+    repl.insert(QLatin1Char('\t'), QChar(02));    // tab
+    repl.insert(QLatin1Char('\n'), QChar(03));    // newline,
 
     repl.insert(QLatin1Char('"'), QLatin1Char('"'));    // double quote,
     repl.insert(QLatin1Char('\''), QLatin1Char('\''));  // single quote ("'"),
@@ -1205,9 +1205,9 @@ QStringList XdgDesktopFile::expandExecString(const QStringList& urls) const
         // The parseCombinedArgString() splits the string by the space symbols,
         // we temporarily replaced them on the special characters.
         // Now we reverse it.
-        token.replace(01, QLatin1Char(' '));
-        token.replace(02, QLatin1Char('\t'));
-        token.replace(03, QLatin1Char('\n'));
+        token.replace(QChar(01), QLatin1Char(' '));
+        token.replace(QChar(02), QLatin1Char('\t'));
+        token.replace(QChar(03), QLatin1Char('\n'));
 
         // ----------------------------------------------------------
         // A single file name, even if multiple files are selected.
