@@ -577,7 +577,7 @@ bool XdgDesktopFileData::startApplicationDetached(const XdgDesktopFile *q, const
         return QProcess::startDetached(cmd, args, workingDir);
     } else
     {
-        std::unique_ptr<QProcess> p(new QProcess);
+        auto p = std::make_unique<QProcess>();
         p->setStandardInputFile(QProcess::nullDevice());
         p->setProcessChannelMode(QProcess::ForwardedChannels);
         if (!workingDir.isEmpty())
